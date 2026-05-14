@@ -695,7 +695,7 @@ document.getElementById('fdate').min = new Date().toISOString().split('T')[0];
 
 /* ── TIME SLOTS ── */
 // Replace this URL after deploying your Google Apps Script
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwW5lU-MT9Ow_cTTKglmGvbxGwJ7PsnGM30GW-Qs1LdvXqUw_SsZic0s9AoKZ9Ips1_2g/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwkFVcmoTwGpNPjbVkIBSyGAF-VqnDqk3SeVA0UxaUhYeFFG2QGHD2i22hho0obspCh0g/exec';
 let selectedTime = null;
 
 document.getElementById('fdate').addEventListener('change', function() {
@@ -731,7 +731,9 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
     notes: document.getElementById('fnotes').value,
   };
   try {
-    await fetch(SHEET_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(payload), headers:{'Content-Type':'application/json'} });
+const formData = new FormData();
+Object.keys(payload).forEach(key => formData.append(key, payload[key]));
+await fetch(SHEET_URL, { method:'POST', mode:'no-cors', body: formData });
       showMsg('🎉 Booking confirmed! Dave will call you within the hour.', 'success');
       document.getElementById('bookingForm').reset();
       document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
@@ -773,26 +775,17 @@ function doGet(e) {
 }
 
 function doPost(e) {
-  const data = JSON.parse(e.postData.contents);
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Bookings');
-  const rows = sheet.getDataRange().getValues();
-  for (let i = 1; i < rows.length; i++) {
-    if (rows[i][5] === data.date && rows[i][6] === data.time) {
-      const out = ContentService.createTextOutput(JSON.stringify({
-        success: false,
-        message: 'That time slot is already booked. Please choose another.'
-      }));
-      out.setMimeType(ContentService.MimeType.JSON);
-      return out;
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Bookings');
+  var rows = sheet.getDataRange().getValues();
+  var date = e.parameter.date;
+  var time = e.parameter.time;
+  for (var i = 1; i < rows.length; i++) {
+    if (rows[i][5] === date && rows[i][6] === time) {
+      return ContentService.createTextOutput(JSON.stringify({ success: false })).setMimeType(ContentService.MimeType.JSON);
     }
   }
-  sheet.appendRow([
-    new Date(), data.name, data.phone, data.email,
-    data.service, data.date, data.time, data.address, data.notes, 'Pending'
-  ]);
-  const out = ContentService.createTextOutput(JSON.stringify({ success: true }));
-  out.setMimeType(ContentService.MimeType.JSON);
-  return out;
+  sheet.appendRow([new Date(), e.parameter.name, e.parameter.phone, e.parameter.email, e.parameter.service, date, time, e.parameter.address, e.parameter.notes, 'Pending']);
+  return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(ContentService.MimeType.JSON);
 }
 */
 </script>
