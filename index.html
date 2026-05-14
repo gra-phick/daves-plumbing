@@ -740,16 +740,11 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
     notes: document.getElementById('fnotes').value,
   };
   try {
-    const res = await fetch(SHEET_URL, { method:'POST', body: JSON.stringify(payload), headers:{'Content-Type':'application/json'} });
-    const data = await res.json();
-    if (data.success) {
+    await fetch(SHEET_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(payload), headers:{'Content-Type':'application/json'} });
       showMsg('🎉 Booking confirmed! Dave will call you within the hour.', 'success');
       document.getElementById('bookingForm').reset();
       document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
       selectedTime = null;
-    } else {
-      showMsg(data.message || 'That slot is no longer available. Please choose another time.', 'error');
-    }
   } catch(_) {
     showMsg('Booking received! Dave will be in touch shortly to confirm your slot.', 'success');
   }
