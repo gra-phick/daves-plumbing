@@ -695,7 +695,7 @@ document.getElementById('fdate').min = new Date().toISOString().split('T')[0];
 
 /* ── TIME SLOTS ── */
 // Replace this URL after deploying your Google Apps Script
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwkFVcmoTwGpNPjbVkIBSyGAF-VqnDqk3SeVA0UxaUhYeFFG2QGHD2i22hho0obspCh0g/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyajCndHFnsafWFBz5D3mux37J0Ou52VkYePWx5PWwFvOiPph0FbjudQKdmboWaJeTFjg/exec';
 let selectedTime = null;
 
 document.getElementById('fdate').addEventListener('change', function() {
@@ -715,33 +715,43 @@ document.querySelectorAll('.time-slot').forEach(slot => {
 });
 
 /* ── FORM SUBMIT ── */
-document.getElementById('bookingForm').addEventListener('submit', async e => {
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
   e.preventDefault();
   if (!selectedTime) { showMsg('Please select a time slot before submitting.', 'error'); return; }
+
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const service = document.getElementById('fservice').value;
+  const address = document.getElementById('faddress').value.trim();
+  const date = document.getElementById('fdate').value;
+  const notes = document.getElementById('fnotes').value.trim();
+
+  if (!name || !phone || !email || !service || !address || !date) {
+    showMsg('Please fill in all required fields.', 'error'); return;
+  }
+
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Submitting...'; btn.disabled = true;
-  const payload = {
-    name: document.getElementById('fname').value,
-    phone: document.getElementById('fphone').value,
-    email: document.getElementById('femail').value,
-    service: document.getElementById('fservice').value,
-    address: document.getElementById('faddress').value,
-    date: document.getElementById('fdate').value,
-    time: selectedTime,
-    notes: document.getElementById('fnotes').value,
-  };
-  try {
-const params = new URLSearchParams();
-Object.keys(payload).forEach(key => params.append(key, payload[key]));
-await fetch(SHEET_URL, { method:'POST', mode:'no-cors', body: params });
-      showMsg('🎉 Booking confirmed! Dave will call you within the hour.', 'success');
-      document.getElementById('bookingForm').reset();
-      document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-      selectedTime = null;
-  } catch(_) {
-    showMsg('Booking received! Dave will be in touch shortly to confirm your slot.', 'success');
-  }
-  btn.textContent = 'Confirm Booking'; btn.disabled = false;
+
+  document.getElementById('hf_name').value = name;
+  document.getElementById('hf_phone').value = phone;
+  document.getElementById('hf_email').value = email;
+  document.getElementById('hf_service').value = service;
+  document.getElementById('hf_address').value = address;
+  document.getElementById('hf_date').value = date;
+  document.getElementById('hf_time').value = selectedTime;
+  document.getElementById('hf_notes').value = notes;
+
+  document.getElementById('hiddenSubmitForm').submit();
+
+  setTimeout(() => {
+    showMsg('🎉 Booking confirmed! Dave will call you within the hour.', 'success');
+    document.getElementById('bookingForm').reset();
+    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+    selectedTime = null;
+    btn.textContent = 'Confirm Booking'; btn.disabled = false;
+  }, 2000);
 });
 
 function showMsg(text, type) {
@@ -789,5 +799,17 @@ function doPost(e) {
 }
 */
 </script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
+<form id="hiddenSubmitForm" method="POST" action="https://script.google.com/macros/s/AKfycbyajCndHFnsafWFBz5D3mux37J0Ou52VkYePWx5PWwFvOiPph0FbjudQKdmboWaJeTFjg/exec" target="hidden_iframe" style="display:none">
+  <input type="hidden" id="hf_name" name="name">
+  <input type="hidden" id="hf_phone" name="phone">
+  <input type="hidden" id="hf_email" name="email">
+  <input type="hidden" id="hf_service" name="service">
+  <input type="hidden" id="hf_address" name="address">
+  <input type="hidden" id="hf_date" name="date">
+  <input type="hidden" id="hf_time" name="time">
+  <input type="hidden" id="hf_notes" name="notes">
+</form>
 </body>
+
 </html>
