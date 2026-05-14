@@ -698,19 +698,10 @@ document.getElementById('fdate').min = new Date().toISOString().split('T')[0];
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwW5lU-MT9Ow_cTTKglmGvbxGwJ7PsnGM30GW-Qs1LdvXqUw_SsZic0s9AoKZ9Ips1_2g/exec';
 let selectedTime = null;
 
-document.getElementById('fdate').addEventListener('change', async function() {
+document.getElementById('fdate').addEventListener('change', function() {
   document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('booked','selected'));
   selectedTime = null;
   document.getElementById('fselectedTime').value = '';
-  try {
-    const res = await fetch(`${SHEET_URL}?date=${this.value}`);
-    if (res.ok) {
-      const { bookedSlots = [] } = await res.json();
-      document.querySelectorAll('.time-slot').forEach(s => {
-        if (bookedSlots.includes(s.dataset.time)) s.classList.add('booked');
-      });
-    }
-  } catch(_) { /* No backend yet — all slots show available */ }
 });
 
 document.querySelectorAll('.time-slot').forEach(slot => {
