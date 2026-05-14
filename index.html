@@ -731,9 +731,9 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
     notes: document.getElementById('fnotes').value,
   };
   try {
-const formData = new FormData();
-Object.keys(payload).forEach(key => formData.append(key, payload[key]));
-await fetch(SHEET_URL, { method:'POST', mode:'no-cors', body: formData });
+const params = new URLSearchParams();
+Object.keys(payload).forEach(key => params.append(key, payload[key]));
+await fetch(SHEET_URL, { method:'POST', mode:'no-cors', body: params });
       showMsg('🎉 Booking confirmed! Dave will call you within the hour.', 'success');
       document.getElementById('bookingForm').reset();
       document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
