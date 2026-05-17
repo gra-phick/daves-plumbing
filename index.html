@@ -186,7 +186,32 @@ a { text-decoration: none; color: inherit; }
 .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
 .footer-built { font-size: 12px; color: rgba(255,255,255,0.15); }
 
+/* RECENT WORK */
+.recent-work { background: var(--white); position: relative; overflow: hidden; }
+.recent-work-header { text-align: center; margin-bottom: 64px; }
+.recent-work-header .section-sub { margin: 0 auto; }
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.work-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
+.work-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.work-card:hover .work-card-img { transform: scale(1.08); }
+.work-card-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.15) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; transition: background 0.4s ease; }
+.work-card:hover .work-card-overlay { background: linear-gradient(0deg, rgba(13,27,42,0.95) 0%, rgba(13,27,42,0.3) 60%, rgba(255,107,53,0.05) 100%); }
+.work-card-tag { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.work-card-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.work-card-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; opacity: 0; }
+.work-card:hover .work-card-desc { max-height: 60px; opacity: 1; }
+.work-card-line { width: 0; height: 2px; background: var(--accent); margin-top: 12px; transition: width 0.5s ease; }
+.work-card:hover .work-card-line { width: 48px; }
+
+/* SECTION DIVIDERS */
+.section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0; border: none; }
+
+/* 3D HOVER DEPTH ON CARDS */
+.service-card { transform-style: preserve-3d; perspective: 800px; }
+.review-card { transform-style: preserve-3d; perspective: 800px; }
+
 @media (max-width: 1024px) {
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
   .about-image-wrap { max-width: 480px; margin: 0 auto; }
@@ -196,7 +221,7 @@ a { text-decoration: none; color: inherit; }
 }
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
-  .services-grid, .reviews-grid { grid-template-columns: 1fr; }
+  .services-grid, .reviews-grid, .work-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .time-slots { grid-template-columns: repeat(4, 1fr); }
   .nav-links { display: none; }
@@ -220,6 +245,7 @@ a { text-decoration: none; color: inherit; }
       </div>
       <div class="nav-links">
         <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+        <a href="#work" data-en="Work" data-es="Trabajos">Work</a>
         <a href="#about" data-en="About" data-es="Nosotros">About</a>
         <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
         <a href="#booking" class="nav-cta" data-en="Book a Job" data-es="Reservar">Book a Job</a>
@@ -354,6 +380,48 @@ a { text-decoration: none; color: inherit; }
     </div>
   </div>
 </section>
+
+<!-- RECENT WORK -->
+<section class="section recent-work" id="work">
+  <div class="container">
+    <div class="recent-work-header reveal">
+      <p class="section-tag" data-en="Portfolio" data-es="Portafolio">Portfolio</p>
+      <h2 class="section-title" data-en="Recent Work" data-es="Trabajos Recientes">Recent Work</h2>
+      <p class="section-sub" data-en="A few of our latest projects across London — from emergency repairs to full installations." data-es="Algunos de nuestros últimos proyectos en Londres — desde reparaciones de emergencia hasta instalaciones completas.">A few of our latest projects across London — from emergency repairs to full installations.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card reveal reveal-delay-1">
+        <img class="work-card-img" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=450&fit=crop&q=80" alt="Emergency boiler repair" loading="lazy">
+        <div class="work-card-overlay">
+          <span class="work-card-tag" data-en="Emergency" data-es="Emergencia">Emergency</span>
+          <h3 class="work-card-title" data-en="Boiler Replacement" data-es="Reemplazo de Caldera">Boiler Replacement</h3>
+          <p class="work-card-desc" data-en="Full combi boiler swap completed same-day in Battersea. Customer back up and running by evening." data-es="Cambio completo de caldera combi realizado el mismo día en Battersea.">Full combi boiler swap completed same-day in Battersea. Customer back up and running by evening.</p>
+          <div class="work-card-line"></div>
+        </div>
+      </div>
+      <div class="work-card reveal reveal-delay-2">
+        <img class="work-card-img" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=450&fit=crop&q=80" alt="Bathroom installation" loading="lazy">
+        <div class="work-card-overlay">
+          <span class="work-card-tag" data-en="Installation" data-es="Instalación">Installation</span>
+          <h3 class="work-card-title" data-en="Full Bathroom Fit-Out" data-es="Instalación Completa de Baño">Full Bathroom Fit-Out</h3>
+          <p class="work-card-desc" data-en="Complete strip and refit — walk-in shower, heated towel rail, and new pipework throughout." data-es="Renovación completa — ducha walk-in, toallero calefactado y tubería nueva.">Complete strip and refit — walk-in shower, heated towel rail, and new pipework throughout.</p>
+          <div class="work-card-line"></div>
+        </div>
+      </div>
+      <div class="work-card reveal reveal-delay-3">
+        <img class="work-card-img" src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=450&fit=crop&q=80" alt="Kitchen pipe replacement" loading="lazy">
+        <div class="work-card-overlay">
+          <span class="work-card-tag" data-en="Repair" data-es="Reparación">Repair</span>
+          <h3 class="work-card-title" data-en="Kitchen Pipe Overhaul" data-es="Revisión de Tuberías de Cocina">Kitchen Pipe Overhaul</h3>
+          <p class="work-card-desc" data-en="Replaced corroded copper pipework under kitchen floor. Zero disruption, spotless finish." data-es="Reemplazo de tuberías de cobre corroídas bajo la cocina. Sin molestias, acabado impecable.">Replaced corroded copper pipework under kitchen floor. Zero disruption, spotless finish.</p>
+          <div class="work-card-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
 
 <!-- BOOKING -->
 <section class="section booking" id="booking">
@@ -719,6 +787,33 @@ function showMsg(text, type) {
   el.textContent = text; el.className = `form-message ${type}`;
   el.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
+
+/* ── SUBTLE PARALLAX ON HERO ── */
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) heroContent.style.transform = `translateY(${y * 0.12}px)`;
+    canvas.style.transform = `translateY(${y * 0.06}px)`;
+  }
+}, { passive: true });
+
+/* ── 3D HOVER TILT ON CARDS ── */
+document.querySelectorAll('.service-card, .work-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `translateY(-8px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
+    card.style.transition = 'transform 0.5s ease';
+  });
+  card.addEventListener('mouseenter', () => {
+    card.style.transition = 'transform 0.1s ease';
+  });
+});
 </script>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
