@@ -9,28 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0D1B2A;
-  --navy-mid: #1B2B3A;
-  --accent: #FF6B35;
-  --accent-dark: #E55A25;
-  --blue: #1E88E5;
-  --white: #FFFFFF;
-  --off-white: #F5F7FA;
-  --text: #1A1A2A;
-  --muted: #6B7280;
-  --border: #E5E7EB;
-  --success: #10B981;
-  --error: #EF4444;
-  --radius: 12px;
-  --radius-lg: 20px;
-  --shadow: 0 4px 24px rgba(0,0,0,0.08);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,0.15);
+  --navy: #0D1B2A; --navy-mid: #1B2B3A; --accent: #FF6B35; --accent-dark: #E55A25;
+  --blue: #1E88E5; --white: #FFFFFF; --off-white: #F5F7FA; --text: #1A1A2A;
+  --muted: #6B7280; --border: #E5E7EB; --success: #10B981; --error: #EF4444;
+  --radius: 12px; --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08); --shadow-lg: 0 12px 48px rgba(0,0,0,0.15);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
 a { text-decoration: none; color: inherit; }
-
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 100px 0; }
 .section-tag { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
@@ -38,7 +26,6 @@ a { text-decoration: none; color: inherit; }
 .section-title.light { color: var(--white); }
 .section-sub { font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 560px; }
 .section-sub.light { color: rgba(255,255,255,0.6); }
-
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-size: 15px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1); border: none; }
 .btn-primary { background: var(--accent); color: var(--white); }
 .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,53,0.4); }
@@ -46,15 +33,11 @@ a { text-decoration: none; color: inherit; }
 .btn-outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
 .btn-dark { background: var(--navy); color: var(--white); }
 .btn-dark:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,27,42,0.3); }
-
 .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.75s ease, transform 0.75s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-.reveal-delay-6 { transition-delay: 0.6s; }
+.reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; } .reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; } .reveal-delay-6 { transition-delay: 0.6s; }
 
 /* NAV */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 22px 0; transition: all 0.4s ease; }
@@ -69,6 +52,12 @@ a { text-decoration: none; color: inherit; }
 .nav-links a:hover { color: var(--white); }
 .nav-cta { background: var(--accent); color: var(--white) !important; padding: 10px 22px; border-radius: 50px; font-size: 14px; font-weight: 500; transition: all 0.3s ease !important; }
 .nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
+
+/* LANG TOGGLE */
+.lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 3px; gap: 2px; }
+.lang-btn { padding: 5px 12px; border-radius: 50px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.2s; border: none; background: transparent; font-family: 'DM Sans', sans-serif; letter-spacing: 0.5px; }
+.lang-btn.active { background: var(--accent); color: var(--white); }
+.lang-btn:hover:not(.active) { color: var(--white); }
 
 /* HERO */
 .hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; background: var(--navy); }
@@ -139,31 +128,25 @@ a { text-decoration: none; color: inherit; }
 .booking-feature-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 2; }
 .booking-feature-text strong { display: block; color: var(--white); font-size: 15px; margin-bottom: 3px; }
 .booking-feature-text p { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.6; }
-
 .booking-form-wrap { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-lg); padding: 40px; }
 .form-title { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; color: var(--white); margin-bottom: 28px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-group { margin-bottom: 16px; }
 .form-group label { display: block; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.5); margin-bottom: 8px; letter-spacing: 0.8px; text-transform: uppercase; }
-.form-group input,
-.form-group select,
-.form-group textarea { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 13px 16px; color: var(--white); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: all 0.25s; outline: none; appearance: none; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 13px 16px; color: var(--white); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: all 0.25s; outline: none; appearance: none; }
 .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
 .form-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
 .form-group select option { background: #1B2B3A; color: var(--white); }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(255,107,53,0.5); background: rgba(255,107,53,0.04); box-shadow: 0 0 0 3px rgba(255,107,53,0.08); }
 .form-group textarea { resize: vertical; min-height: 96px; }
-
 .time-slots-label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.5); margin-bottom: 10px; display: block; letter-spacing: 0.8px; text-transform: uppercase; }
 .time-slots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
 .time-slot { padding: 10px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: rgba(255,255,255,0.6); font-size: 12px; text-align: center; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; user-select: none; }
 .time-slot:hover:not(.booked):not(.selected) { background: rgba(255,107,53,0.1); border-color: rgba(255,107,53,0.4); color: var(--accent); transform: translateY(-1px); }
 .time-slot.selected { background: var(--accent); border-color: var(--accent); color: var(--white); font-weight: 500; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,107,53,0.35); }
 .time-slot.booked { opacity: 0.25; cursor: not-allowed; text-decoration: line-through; }
-
 .form-submit { width: 100%; padding: 16px; background: var(--accent); color: var(--white); border: none; border-radius: 10px; font-size: 16px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.3s ease; margin-top: 4px; }
 .form-submit:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,107,53,0.4); }
-.form-submit:active { transform: translateY(0); }
 .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 .form-message { padding: 14px 16px; border-radius: 10px; font-size: 14px; margin-top: 12px; display: none; line-height: 1.6; }
 .form-message.success { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: #6EE7B7; display: block; }
@@ -203,7 +186,6 @@ a { text-decoration: none; color: inherit; }
 .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
 .footer-built { font-size: 12px; color: rgba(255,255,255,0.15); }
 
-/* RESPONSIVE */
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -237,10 +219,14 @@ a { text-decoration: none; color: inherit; }
         <span class="nav-logo-text">Dave's <span>Plumbing</span></span>
       </div>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#booking" class="nav-cta">Book a Job</a>
+        <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+        <a href="#about" data-en="About" data-es="Nosotros">About</a>
+        <a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a>
+        <a href="#booking" class="nav-cta" data-en="Book a Job" data-es="Reservar">Book a Job</a>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
       </div>
     </div>
   </div>
@@ -254,24 +240,25 @@ a { text-decoration: none; color: inherit; }
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Available 24/7 for Emergencies
+        <span data-en="Available 24/7 for Emergencies" data-es="Disponible 24/7 para Emergencias">Available 24/7 for Emergencies</span>
       </div>
       <h1 class="hero-title">
-        Reliable Plumbing,<br><em>Done Right.</em>
+        <span data-en="Reliable Plumbing," data-es="Fontanería Confiable,">Reliable Plumbing,</span><br>
+        <em data-en="Done Right." data-es="Hecha Bien.">Done Right.</em>
       </h1>
-      <p class="hero-sub">Expert plumbing for homes and businesses across London. Fast, professional, and guaranteed — trusted by over 1,500 happy customers.</p>
+      <p class="hero-sub" data-en="Expert plumbing for homes and businesses across London. Fast, professional, and guaranteed — trusted by over 1,500 happy customers." data-es="Fontanería experta para hogares y negocios en Londres. Rápida, profesional y garantizada — con más de 1,500 clientes satisfechos.">Expert plumbing for homes and businesses across London. Fast, professional, and guaranteed — trusted by over 1,500 happy customers.</p>
       <div class="hero-actions">
         <a href="#booking" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book a Job
+          <span data-en="Book a Job" data-es="Reservar">Book a Job</span>
         </a>
-        <a href="#services" class="btn btn-outline">Our Services</a>
+        <a href="#services" class="btn btn-outline" data-en="Our Services" data-es="Nuestros Servicios">Our Services</a>
       </div>
     </div>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
-    <span>SCROLL</span>
+    <span data-en="SCROLL" data-es="BAJAR">SCROLL</span>
   </div>
 </section>
 
@@ -279,26 +266,11 @@ a { text-decoration: none; color: inherit; }
 <div class="trust-bar">
   <div class="container">
     <div class="trust-items">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        Gas Safe Registered
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Fully Insured
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Same Day Response
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        4.9★ on Google
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        No Call-Out Fee
-      </div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Gas Safe Registered" data-es="Certificado Gas Safe">Gas Safe Registered</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-en="Fully Insured" data-es="Totalmente Asegurado">Fully Insured</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-en="Same Day Response" data-es="Respuesta el Mismo Día">Same Day Response</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>4.9★ on Google</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="No Call-Out Fee" data-es="Sin Cargo por Visita">No Call-Out Fee</span></div>
     </div>
   </div>
 </div>
@@ -307,58 +279,46 @@ a { text-decoration: none; color: inherit; }
 <section class="section services" id="services">
   <div class="container">
     <div class="services-header reveal">
-      <p class="section-tag">What We Do</p>
-      <h2 class="section-title">Expert Services You Can Count On</h2>
-      <p class="section-sub">From emergency call-outs to full installations — every job done properly, first time.</p>
+      <p class="section-tag" data-en="What We Do" data-es="Lo Que Hacemos">What We Do</p>
+      <h2 class="section-title" data-en="Expert Services You Can Count On" data-es="Servicios Expertos en los que Puedes Confiar">Expert Services You Can Count On</h2>
+      <p class="section-sub" data-en="From emergency call-outs to full installations — every job done properly, first time." data-es="Desde emergencias hasta instalaciones completas — cada trabajo hecho bien desde la primera vez.">From emergency call-outs to full installations — every job done properly, first time.</p>
     </div>
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h3 class="service-title">Emergency Repairs</h3>
-        <p class="service-desc">Burst pipes, water damage, and urgent leaks handled fast. On call 24/7 — no extra charge for nights or weekends.</p>
-        <span class="service-price">From £80</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3 class="service-title" data-en="Emergency Repairs" data-es="Reparaciones de Emergencia">Emergency Repairs</h3>
+        <p class="service-desc" data-en="Burst pipes, water damage, and urgent leaks handled fast. On call 24/7 — no extra charge for nights or weekends." data-es="Tuberías rotas, daños por agua y fugas urgentes atendidas rápido. Disponible 24/7 — sin cargos extra por noches o fines de semana.">Burst pipes, water damage, and urgent leaks handled fast. On call 24/7 — no extra charge for nights or weekends.</p>
+        <span class="service-price" data-en="From £80" data-es="Desde £80">From £80</span>
       </div>
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
-        </div>
-        <h3 class="service-title">Leak Detection</h3>
-        <p class="service-desc">Advanced non-invasive technology pinpoints hidden leaks without unnecessary damage to your property.</p>
-        <span class="service-price">From £120</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
+        <h3 class="service-title" data-en="Leak Detection" data-es="Detección de Fugas">Leak Detection</h3>
+        <p class="service-desc" data-en="Advanced non-invasive technology pinpoints hidden leaks without unnecessary damage to your property." data-es="Tecnología avanzada no invasiva para localizar fugas ocultas sin dañar tu propiedad.">Advanced non-invasive technology pinpoints hidden leaks without unnecessary damage to your property.</p>
+        <span class="service-price" data-en="From £120" data-es="Desde £120">From £120</span>
       </div>
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9zm9-7v5M9 7l3-5 3 5"/></svg>
-        </div>
-        <h3 class="service-title">Drain Unblocking</h3>
-        <p class="service-desc">High-pressure jetting and CCTV drain surveys to clear and diagnose blocked drains, toilets, and sewers.</p>
-        <span class="service-price">From £70</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h14a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9zm9-7v5M9 7l3-5 3 5"/></svg></div>
+        <h3 class="service-title" data-en="Drain Unblocking" data-es="Desatasco de Desagües">Drain Unblocking</h3>
+        <p class="service-desc" data-en="High-pressure jetting and CCTV drain surveys to clear and diagnose blocked drains, toilets, and sewers." data-es="Limpieza a alta presión y cámaras CCTV para desbloquear y diagnosticar desagües, inodoros y alcantarillas.">High-pressure jetting and CCTV drain surveys to clear and diagnose blocked drains, toilets, and sewers.</p>
+        <span class="service-price" data-en="From £70" data-es="Desde £70">From £70</span>
       </div>
       <div class="service-card reveal reveal-delay-4">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M18.364 5.636a9 9 0 01.203 12.519M15.536 8.464a5 5 0 01.115 6.861M12 11a1 1 0 110 2 1 1 0 010-2zm0 0V3M6.349 17.773a9 9 0 01-.103-12.608"/></svg>
-        </div>
-        <h3 class="service-title">Boiler Service</h3>
-        <p class="service-desc">Annual boiler servicing to keep your heating safe, efficient, and warrantied — saving you money long-term.</p>
-        <span class="service-price">From £90</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18.364 5.636a9 9 0 01.203 12.519M15.536 8.464a5 5 0 01.115 6.861M12 11a1 1 0 110 2 1 1 0 010-2zm0 0V3M6.349 17.773a9 9 0 01-.103-12.608"/></svg></div>
+        <h3 class="service-title" data-en="Boiler Service" data-es="Servicio de Caldera">Boiler Service</h3>
+        <p class="service-desc" data-en="Annual boiler servicing to keep your heating safe, efficient, and warrantied — saving you money long-term." data-es="Mantenimiento anual de caldera para mantener tu calefacción segura y eficiente — ahorrándote dinero a largo plazo.">Annual boiler servicing to keep your heating safe, efficient, and warrantied — saving you money long-term.</p>
+        <span class="service-price" data-en="From £90" data-es="Desde £90">From £90</span>
       </div>
       <div class="service-card reveal reveal-delay-5">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V8l7-5 7 5v12M9 20v-5h6v5"/></svg>
-        </div>
-        <h3 class="service-title">Bathroom Installation</h3>
-        <p class="service-desc">Full bathroom fit-outs from design to completion. Supplied, installed, and finished to the highest standard.</p>
-        <span class="service-price">From £1,200</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V8l7-5 7 5v12M9 20v-5h6v5"/></svg></div>
+        <h3 class="service-title" data-en="Bathroom Installation" data-es="Instalación de Baños">Bathroom Installation</h3>
+        <p class="service-desc" data-en="Full bathroom fit-outs from design to completion. Supplied, installed, and finished to the highest standard." data-es="Instalación completa de baños desde el diseño hasta la entrega. Con los más altos estándares de calidad.">Full bathroom fit-outs from design to completion. Supplied, installed, and finished to the highest standard.</p>
+        <span class="service-price" data-en="From £1,200" data-es="Desde £1,200">From £1,200</span>
       </div>
       <div class="service-card reveal reveal-delay-6">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 17l3-3m0 0l3-3m-3 3l3 3m-3-3h9M21 7l-3 3m0 0l-3-3m3 3l-3 3m3-3H9"/></svg>
-        </div>
-        <h3 class="service-title">Central Heating</h3>
-        <p class="service-desc">Full central heating installation, repairs, and upgrades. Stay warm and keep energy bills under control.</p>
-        <span class="service-price">From £200</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 17l3-3m0 0l3-3m-3 3l3 3m-3-3h9M21 7l-3 3m0 0l-3-3m3 3l-3 3m3-3H9"/></svg></div>
+        <h3 class="service-title" data-en="Central Heating" data-es="Calefacción Central">Central Heating</h3>
+        <p class="service-desc" data-en="Full central heating installation, repairs, and upgrades. Stay warm and keep energy bills under control." data-es="Instalación, reparación y mejora de calefacción central. Mantente caliente y controla tus facturas de energía.">Full central heating installation, repairs, and upgrades. Stay warm and keep energy bills under control.</p>
+        <span class="service-price" data-en="From £200" data-es="Desde £200">From £200</span>
       </div>
     </div>
   </div>
@@ -372,33 +332,24 @@ a { text-decoration: none; color: inherit; }
         <div class="about-accent-block"></div>
         <div class="about-image">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-          <p>Add Dave's photo here</p>
+          <p data-en="Add Dave's photo here" data-es="Añadir foto de Dave aquí">Add Dave's photo here</p>
         </div>
         <div class="about-badge">
           <div class="about-badge-num" data-count="15">0</div>
-          <div class="about-badge-label">Years Experience</div>
+          <div class="about-badge-label" data-en="Years Experience" data-es="Años de Experiencia">Years Experience</div>
         </div>
       </div>
       <div>
-        <p class="section-tag reveal">About Us</p>
-        <h2 class="about-title reveal">Meet Dave —<br>Your Local Expert</h2>
-        <p class="about-desc reveal">Dave started his plumbing career fresh out of college and hasn't looked back since. With over 15 years of hands-on experience across residential and commercial properties, there's no job too big or too small.</p>
-        <p class="about-desc reveal">Fully Gas Safe registered, comprehensively insured, and passionate about quality workmanship — Dave treats every home like his own. That's why over 90% of new customers come through word of mouth.</p>
+        <p class="section-tag reveal" data-en="About Us" data-es="Sobre Nosotros">About Us</p>
+        <h2 class="about-title reveal" data-en="Meet Dave —<br>Your Local Expert" data-es="Conoce a Dave —<br>Tu Experto Local">Meet Dave —<br>Your Local Expert</h2>
+        <p class="about-desc reveal" data-en="Dave started his plumbing career fresh out of college and hasn't looked back since. With over 15 years of hands-on experience across residential and commercial properties, there's no job too big or too small." data-es="Dave comenzó su carrera en fontanería recién salido de la universidad y no ha parado desde entonces. Con más de 15 años de experiencia práctica en propiedades residenciales y comerciales, no hay trabajo demasiado grande ni pequeño.">Dave started his plumbing career fresh out of college and hasn't looked back since. With over 15 years of hands-on experience across residential and commercial properties, there's no job too big or too small.</p>
+        <p class="about-desc reveal" data-en="Fully Gas Safe registered, comprehensively insured, and passionate about quality workmanship — Dave treats every home like his own. That's why over 90% of new customers come through word of mouth." data-es="Totalmente certificado Gas Safe, con seguro completo y apasionado por la calidad — Dave trata cada hogar como el suyo. Por eso más del 90% de los nuevos clientes llegan por recomendación.">Fully Gas Safe registered, comprehensively insured, and passionate about quality workmanship — Dave treats every home like his own. That's why over 90% of new customers come through word of mouth.</p>
         <div class="about-stats reveal">
-          <div>
-            <div class="stat-num" data-count="1500">0</div>
-            <div class="stat-label">Jobs Completed</div>
-          </div>
-          <div>
-            <div class="stat-num" data-count="98">0</div>
-            <div class="stat-label">% Satisfaction</div>
-          </div>
-          <div>
-            <div class="stat-num" data-count="340">0</div>
-            <div class="stat-label">5★ Reviews</div>
-          </div>
+          <div><div class="stat-num" data-count="1500">0</div><div class="stat-label" data-en="Jobs Completed" data-es="Trabajos Realizados">Jobs Completed</div></div>
+          <div><div class="stat-num" data-count="98">0</div><div class="stat-label" data-en="% Satisfaction" data-es="% Satisfacción">% Satisfaction</div></div>
+          <div><div class="stat-num" data-count="340">0</div><div class="stat-label" data-en="5★ Reviews" data-es="5★ Reseñas">5★ Reviews</div></div>
         </div>
-        <a href="#booking" class="btn btn-dark reveal">Book Dave Today</a>
+        <a href="#booking" class="btn btn-dark reveal" data-en="Book Dave Today" data-es="Reserva con Dave Hoy">Book Dave Today</a>
       </div>
     </div>
   </div>
@@ -409,81 +360,73 @@ a { text-decoration: none; color: inherit; }
   <div class="container">
     <div class="booking-inner">
       <div class="booking-info reveal">
-        <p class="section-tag">Get Booked In</p>
-        <h2 class="section-title light">Schedule Your<br>Job Online</h2>
-        <p class="section-sub light">Pick a date and time that works for you. We'll confirm within the hour — no hassle, no waiting.</p>
+        <p class="section-tag" data-en="Get Booked In" data-es="Haz tu Reserva">Get Booked In</p>
+        <h2 class="section-title light" data-en="Schedule Your<br>Job Online" data-es="Programa Tu<br>Trabajo Online">Schedule Your<br>Job Online</h2>
+        <p class="section-sub light" data-en="Pick a date and time that works for you. We'll confirm within the hour — no hassle, no waiting." data-es="Elige una fecha y hora que te convenga. Confirmamos en menos de una hora — sin complicaciones.">Pick a date and time that works for you. We'll confirm within the hour — no hassle, no waiting.</p>
         <div class="booking-features">
           <div class="booking-feature">
-            <div class="booking-feature-icon">
-              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
+            <div class="booking-feature-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
             <div class="booking-feature-text">
-              <strong>No Booking Fee</strong>
-              <p>Book your slot completely free — you only pay when the job is done.</p>
+              <strong data-en="No Booking Fee" data-es="Sin Cargo de Reserva">No Booking Fee</strong>
+              <p data-en="Book your slot completely free — you only pay when the job is done." data-es="Reserva tu cita completamente gratis — solo pagas cuando el trabajo esté hecho.">Book your slot completely free — you only pay when the job is done.</p>
             </div>
           </div>
           <div class="booking-feature">
-            <div class="booking-feature-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
+            <div class="booking-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div class="booking-feature-text">
-              <strong>Real-Time Availability</strong>
-              <p>Pick a slot and it's yours — booked slots are blocked automatically. No doubles, ever.</p>
+              <strong data-en="Real-Time Availability" data-es="Disponibilidad en Tiempo Real">Real-Time Availability</strong>
+              <p data-en="Pick a slot and it's yours — booked slots are blocked automatically. No doubles, ever." data-es="Elige un horario y es tuyo — los horarios ocupados se bloquean automáticamente. Sin duplicados.">Pick a slot and it's yours — booked slots are blocked automatically. No doubles, ever.</p>
             </div>
           </div>
           <div class="booking-feature">
-            <div class="booking-feature-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.42 1.18 2 2 0 012.4 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
+            <div class="booking-feature-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.42 1.18 2 2 0 012.4 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
             <div class="booking-feature-text">
-              <strong>Confirmed Within 1 Hour</strong>
-              <p>Dave personally calls to confirm every booking the same day it's made.</p>
+              <strong data-en="Confirmed Within 1 Hour" data-es="Confirmado en 1 Hora">Confirmed Within 1 Hour</strong>
+              <p data-en="Dave personally calls to confirm every booking the same day it's made." data-es="Dave llama personalmente para confirmar cada reserva el mismo día.">Dave personally calls to confirm every booking the same day it's made.</p>
             </div>
           </div>
         </div>
       </div>
-
       <div class="booking-form-wrap reveal reveal-delay-2">
-        <h3 class="form-title">Book Your Appointment</h3>
+        <h3 class="form-title" data-en="Book Your Appointment" data-es="Reserva tu Cita">Book Your Appointment</h3>
         <form id="bookingForm" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" id="fname" placeholder="John Smith" required>
+              <label data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+              <input type="text" id="fname" data-placeholder-en="John Smith" data-placeholder-es="Juan García" placeholder="John Smith" required>
             </div>
             <div class="form-group">
-              <label>Phone Number</label>
+              <label data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
               <input type="tel" id="fphone" placeholder="07700 000 000" required>
             </div>
           </div>
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="femail" placeholder="john@example.com" required>
+            <label data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
+            <input type="email" id="femail" data-placeholder-en="john@example.com" data-placeholder-es="juan@ejemplo.com" placeholder="john@example.com" required>
           </div>
           <div class="form-group">
-            <label>Service Required</label>
+            <label data-en="Service Required" data-es="Servicio Requerido">Service Required</label>
             <select id="fservice" required>
-              <option value="" disabled selected>Select a service...</option>
-              <option>Emergency Repair</option>
-              <option>Leak Detection</option>
-              <option>Boiler Service</option>
-              <option>Drain Unblocking</option>
-              <option>Bathroom Installation</option>
-              <option>Central Heating</option>
-              <option>General Plumbing</option>
-              <option>Other</option>
+              <option value="" disabled selected data-en="Select a service..." data-es="Selecciona un servicio...">Select a service...</option>
+              <option data-en="Emergency Repair" data-es="Reparación de Emergencia">Emergency Repair</option>
+              <option data-en="Leak Detection" data-es="Detección de Fugas">Leak Detection</option>
+              <option data-en="Boiler Service" data-es="Servicio de Caldera">Boiler Service</option>
+              <option data-en="Drain Unblocking" data-es="Desatasco de Desagüe">Drain Unblocking</option>
+              <option data-en="Bathroom Installation" data-es="Instalación de Baño">Bathroom Installation</option>
+              <option data-en="Central Heating" data-es="Calefacción Central">Central Heating</option>
+              <option data-en="General Plumbing" data-es="Fontanería General">General Plumbing</option>
+              <option data-en="Other" data-es="Otro">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Property Address</label>
-            <input type="text" id="faddress" placeholder="123 High Street, London" required>
+            <label data-en="Property Address" data-es="Dirección del Inmueble">Property Address</label>
+            <input type="text" id="faddress" data-placeholder-en="123 High Street, London" data-placeholder-es="Calle Mayor 123, Londres" placeholder="123 High Street, London" required>
           </div>
           <div class="form-group">
-            <label>Preferred Date</label>
+            <label data-en="Preferred Date" data-es="Fecha Preferida">Preferred Date</label>
             <input type="date" id="fdate" required>
           </div>
-
-          <span class="time-slots-label">Select a Time Slot</span>
+          <span class="time-slots-label" data-en="Select a Time Slot" data-es="Selecciona un Horario">Select a Time Slot</span>
           <div class="time-slots" id="timeSlots">
             <div class="time-slot" data-time="08:00">8:00 AM</div>
             <div class="time-slot" data-time="09:00">9:00 AM</div>
@@ -497,12 +440,11 @@ a { text-decoration: none; color: inherit; }
             <div class="time-slot" data-time="17:00">5:00 PM</div>
           </div>
           <input type="hidden" id="fselectedTime">
-
           <div class="form-group">
-            <label>Additional Notes</label>
-            <textarea id="fnotes" placeholder="Briefly describe the issue or any access details..."></textarea>
+            <label data-en="Additional Notes" data-es="Notas Adicionales">Additional Notes</label>
+            <textarea id="fnotes" data-placeholder-en="Briefly describe the issue or any access details..." data-placeholder-es="Describe brevemente el problema o detalles de acceso..." placeholder="Briefly describe the issue or any access details..."></textarea>
           </div>
-          <button type="submit" class="form-submit" id="submitBtn">Confirm Booking</button>
+          <button type="submit" class="form-submit" id="submitBtn" data-en="Confirm Booking" data-es="Confirmar Reserva">Confirm Booking</button>
           <div class="form-message" id="formMessage"></div>
         </form>
       </div>
@@ -514,9 +456,9 @@ a { text-decoration: none; color: inherit; }
 <section class="section reviews" id="reviews">
   <div class="container">
     <div class="reviews-header reveal">
-      <p class="section-tag">Testimonials</p>
-      <h2 class="section-title">What Our Customers Say</h2>
-      <p class="section-sub">Real reviews from real customers across London.</p>
+      <p class="section-tag" data-en="Testimonials" data-es="Testimonios">Testimonials</p>
+      <h2 class="section-title" data-en="What Our Customers Say" data-es="Lo Que Dicen Nuestros Clientes">What Our Customers Say</h2>
+      <p class="section-sub" data-en="Real reviews from real customers across London." data-es="Reseñas reales de clientes reales en todo Londres.">Real reviews from real customers across London.</p>
     </div>
     <div class="reviews-grid">
       <div class="review-card reveal reveal-delay-1">
@@ -527,13 +469,10 @@ a { text-decoration: none; color: inherit; }
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="review-text">"Dave came out the same evening our boiler broke down in January. Diagnosed the problem in minutes and had us back up and running. Absolutely outstanding service — and very fairly priced."</p>
+        <p class="review-text" data-en='"Dave came out the same evening our boiler broke down in January. Diagnosed the problem in minutes and had us back up and running. Absolutely outstanding service — and very fairly priced."' data-es='"Dave vino la misma noche que nuestra caldera falló en enero. Diagnosticó el problema en minutos y nos dejó sin calefacción lo mínimo. Servicio absolutamente excelente — y a un precio muy justo."'>"Dave came out the same evening our boiler broke down in January. Diagnosed the problem in minutes and had us back up and running. Absolutely outstanding service — and very fairly priced."</p>
         <div class="review-author">
           <div class="review-avatar">SH</div>
-          <div>
-            <div class="review-name">Sarah Henderson</div>
-            <div class="review-location">Wimbledon, London</div>
-          </div>
+          <div><div class="review-name">Sarah Henderson</div><div class="review-location">Wimbledon, London</div></div>
         </div>
       </div>
       <div class="review-card reveal reveal-delay-2">
@@ -544,13 +483,10 @@ a { text-decoration: none; color: inherit; }
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="review-text">"Had Dave fit our new bathroom from scratch. The attention to detail was incredible — he even spotted a problem with our old pipes and sorted it while he was there. Tidy worker too. Would 100% recommend."</p>
+        <p class="review-text" data-en='"Had Dave fit our new bathroom from scratch. The attention to detail was incredible — he even spotted a problem with our old pipes and sorted it while he was there. Tidy worker too. Would 100% recommend."' data-es='"Dave instaló nuestro nuevo baño desde cero. La atención al detalle fue increíble — incluso detectó un problema con las tuberías antiguas y lo solucionó. Muy ordenado además. Lo recomiendo 100%."'>"Had Dave fit our new bathroom from scratch. The attention to detail was incredible — he even spotted a problem with our old pipes and sorted it while he was there. Tidy worker too. Would 100% recommend."</p>
         <div class="review-author">
           <div class="review-avatar">MK</div>
-          <div>
-            <div class="review-name">Michael Kaur</div>
-            <div class="review-location">Croydon, London</div>
-          </div>
+          <div><div class="review-name">Michael Kaur</div><div class="review-location">Croydon, London</div></div>
         </div>
       </div>
       <div class="review-card reveal reveal-delay-3">
@@ -561,13 +497,10 @@ a { text-decoration: none; color: inherit; }
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="review-text">"We had a slow leak under the kitchen sink that three other plumbers couldn't find. Dave found it in 20 minutes with his detection kit. Wish we'd called him first. Brilliant, professional service."</p>
+        <p class="review-text" data-en='"We had a slow leak under the kitchen sink that three other plumbers couldn'\''t find. Dave found it in 20 minutes with his detection kit. Wish we'\''d called him first. Brilliant, professional service."' data-es='"Teníamos una fuga lenta bajo el fregadero que otros tres fontaneros no pudieron encontrar. Dave la localizó en 20 minutos con su equipo. Ojalá lo hubiéramos llamado primero. Servicio brillante y profesional."'>"We had a slow leak under the kitchen sink that three other plumbers couldn't find. Dave found it in 20 minutes with his detection kit. Wish we'd called him first. Brilliant, professional service."</p>
         <div class="review-author">
           <div class="review-avatar">LP</div>
-          <div>
-            <div class="review-name">Laura Pearson</div>
-            <div class="review-location">Clapham, London</div>
-          </div>
+          <div><div class="review-name">Laura Pearson</div><div class="review-location">Clapham, London</div></div>
         </div>
       </div>
     </div>
@@ -580,47 +513,39 @@ a { text-decoration: none; color: inherit; }
     <div class="footer-inner">
       <div>
         <div class="footer-logo">
-          <div class="footer-logo-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M21.9 8.89l-1.05-4.37A2 2 0 0019.94 3H5.06a2 2 0 00-1.91 1.52L2.1 8.89a3.3 3.3 0 00.62 2.88c.08.1.19.19.28.29V19a2 2 0 002 2h14a2 2 0 002-2v-6.94c.09-.1.2-.19.28-.29a3.3 3.3 0 00.62-2.88zM5 19v-6.03c.08.01.15.03.23.03.87 0 1.66-.36 2.24-.95.58.59 1.37.95 2.26.95.87 0 1.65-.36 2.24-.95.58.59 1.37.95 2.26.95.87 0 1.65-.36 2.24-.95.58.59 1.37.95 2.24.95.08 0 .15-.02.23-.03V19H5z"/></svg>
-          </div>
+          <div class="footer-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M21.9 8.89l-1.05-4.37A2 2 0 0019.94 3H5.06a2 2 0 00-1.91 1.52L2.1 8.89a3.3 3.3 0 00.62 2.88c.08.1.19.19.28.29V19a2 2 0 002 2h14a2 2 0 002-2v-6.94c.09-.1.2-.19.28-.29a3.3 3.3 0 00.62-2.88zM5 19v-6.03c.08.01.15.03.23.03.87 0 1.66-.36 2.24-.95.58.59 1.37.95 2.26.95.87 0 1.65-.36 2.24-.95.58.59 1.37.95 2.26.95.87 0 1.65-.36 2.24-.95.58.59 1.37.95 2.24.95.08 0 .15-.02.23-.03V19H5z"/></svg></div>
           <span class="footer-logo-text">Dave's <span>Plumbing</span></span>
         </div>
-        <p class="footer-desc">Expert plumbing services across London. Trusted, certified, and available when you need us most.</p>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.42 1.18 2 2 0 012.4 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          07700 900 123
-        </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          dave@davesplumbing.co.uk
-        </div>
+        <p class="footer-desc" data-en="Expert plumbing services across London. Trusted, certified, and available when you need us most." data-es="Servicios expertos de fontanería en todo Londres. De confianza, certificados y disponibles cuando más nos necesitas.">Expert plumbing services across London. Trusted, certified, and available when you need us most.</p>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.42 1.18 2 2 0 012.4 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>07700 900 123</div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>dave@davesplumbing.co.uk</div>
       </div>
       <div>
-        <p class="footer-col-title">Services</p>
+        <p class="footer-col-title" data-en="Services" data-es="Servicios">Services</p>
         <ul class="footer-links">
-          <li><a href="#services">Emergency Repairs</a></li>
-          <li><a href="#services">Leak Detection</a></li>
-          <li><a href="#services">Boiler Service</a></li>
-          <li><a href="#services">Drain Unblocking</a></li>
-          <li><a href="#services">Bathroom Fitting</a></li>
+          <li><a href="#services" data-en="Emergency Repairs" data-es="Reparaciones de Emergencia">Emergency Repairs</a></li>
+          <li><a href="#services" data-en="Leak Detection" data-es="Detección de Fugas">Leak Detection</a></li>
+          <li><a href="#services" data-en="Boiler Service" data-es="Servicio de Caldera">Boiler Service</a></li>
+          <li><a href="#services" data-en="Drain Unblocking" data-es="Desatasco">Drain Unblocking</a></li>
+          <li><a href="#services" data-en="Bathroom Fitting" data-es="Instalación de Baño">Bathroom Fitting</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer-col-title">Company</p>
+        <p class="footer-col-title" data-en="Company" data-es="Empresa">Company</p>
         <ul class="footer-links">
-          <li><a href="#about">About Dave</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#booking">Book a Job</a></li>
+          <li><a href="#about" data-en="About Dave" data-es="Sobre Dave">About Dave</a></li>
+          <li><a href="#reviews" data-en="Reviews" data-es="Reseñas">Reviews</a></li>
+          <li><a href="#booking" data-en="Book a Job" data-es="Reservar">Book a Job</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer-col-title">Areas Covered</p>
+        <p class="footer-col-title" data-en="Areas Covered" data-es="Zonas de Cobertura">Areas Covered</p>
         <ul class="footer-links">
-          <li><a href="#">Central London</a></li>
-          <li><a href="#">South London</a></li>
-          <li><a href="#">North London</a></li>
-          <li><a href="#">East London</a></li>
-          <li><a href="#">West London</a></li>
+          <li><a href="#" data-en="Central London" data-es="Centro de Londres">Central London</a></li>
+          <li><a href="#" data-en="South London" data-es="Sur de Londres">South London</a></li>
+          <li><a href="#" data-en="North London" data-es="Norte de Londres">North London</a></li>
+          <li><a href="#" data-en="East London" data-es="Este de Londres">East London</a></li>
+          <li><a href="#" data-en="West London" data-es="Oeste de Londres">West London</a></li>
         </ul>
       </div>
     </div>
@@ -632,23 +557,58 @@ a { text-decoration: none; color: inherit; }
 </footer>
 
 <script>
-/* ── CANVAS HERO (animated water bubbles) ── */
+/* ── LANGUAGE TOGGLE ── */
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (!text) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+    if (el.innerHTML.includes('<br>') || text.includes('<br>')) {
+      el.innerHTML = text;
+    } else {
+      el.textContent = text;
+    }
+  });
+
+  // Placeholders
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-en');
+  });
+
+  // Form message
+  const msg = document.getElementById('formMessage');
+  if (msg.classList.contains('success')) {
+    msg.textContent = lang === 'es'
+      ? '🎉 ¡Reserva confirmada! Dave te llamará en menos de una hora.'
+      : '🎉 Booking confirmed! Dave will call you within the hour.';
+  }
+  if (msg.classList.contains('error') && msg.textContent.includes('time slot')) {
+    msg.textContent = lang === 'es'
+      ? 'Por favor selecciona un horario antes de enviar.'
+      : 'Please select a time slot before submitting.';
+  }
+}
+
+/* ── CANVAS HERO ── */
 const canvas = document.getElementById('heroCanvas');
 const ctx = canvas.getContext('2d');
 let drops = [];
-
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resize();
 window.addEventListener('resize', resize);
-
 function newDrop() {
-  return { x: Math.random() * canvas.width, y: canvas.height + 10,
-    r: Math.random() * 3 + 0.8, speed: Math.random() * 0.7 + 0.25,
-    alpha: Math.random() * 0.35 + 0.04, wob: Math.random() * Math.PI * 2,
-    wobS: Math.random() * 0.018 + 0.004 };
+  return { x: Math.random() * canvas.width, y: canvas.height + 10, r: Math.random() * 3 + 0.8,
+    speed: Math.random() * 0.7 + 0.25, alpha: Math.random() * 0.35 + 0.04,
+    wob: Math.random() * Math.PI * 2, wobS: Math.random() * 0.018 + 0.004 };
 }
 for (let i = 0; i < 65; i++) { const d = newDrop(); d.y = Math.random() * canvas.height; drops.push(d); }
-
 (function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drops.forEach((d, i) => {
@@ -694,7 +654,6 @@ document.querySelectorAll('.about-stats, .about-badge').forEach(el => cntObs.obs
 document.getElementById('fdate').min = new Date().toISOString().split('T')[0];
 
 /* ── TIME SLOTS ── */
-// Replace this URL after deploying your Google Apps Script
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxwswJyASMYR-irGyDIBU4rjuswYXZ1mjFDeGPG5uefE7PqDsSS_FDmYEWyGs989-8jLQ/exec';
 let selectedTime = null;
 
@@ -717,8 +676,11 @@ document.querySelectorAll('.time-slot').forEach(slot => {
 /* ── FORM SUBMIT ── */
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  if (!selectedTime) { showMsg('Please select a time slot before submitting.', 'error'); return; }
-
+  const es = currentLang === 'es';
+  if (!selectedTime) {
+    showMsg(es ? 'Por favor selecciona un horario antes de enviar.' : 'Please select a time slot before submitting.', 'error');
+    return;
+  }
   const name = document.getElementById('fname').value.trim();
   const phone = document.getElementById('fphone').value.trim();
   const email = document.getElementById('femail').value.trim();
@@ -726,14 +688,13 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
   const address = document.getElementById('faddress').value.trim();
   const date = document.getElementById('fdate').value;
   const notes = document.getElementById('fnotes').value.trim();
-
   if (!name || !phone || !email || !service || !address || !date) {
-    showMsg('Please fill in all required fields.', 'error'); return;
+    showMsg(es ? 'Por favor completa todos los campos requeridos.' : 'Please fill in all required fields.', 'error');
+    return;
   }
-
   const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Submitting...'; btn.disabled = true;
-
+  btn.textContent = es ? 'Enviando...' : 'Submitting...';
+  btn.disabled = true;
   document.getElementById('hf_name').value = name;
   document.getElementById('hf_phone').value = phone;
   document.getElementById('hf_email').value = email;
@@ -742,15 +703,14 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
   document.getElementById('hf_date').value = date;
   document.getElementById('hf_time').value = selectedTime;
   document.getElementById('hf_notes').value = notes;
-
   document.getElementById('hiddenSubmitForm').submit();
-
   setTimeout(() => {
-    showMsg('🎉 Booking confirmed! Dave will call you within the hour.', 'success');
+    showMsg(es ? '🎉 ¡Reserva confirmada! Dave te llamará en menos de una hora.' : '🎉 Booking confirmed! Dave will call you within the hour.', 'success');
     document.getElementById('bookingForm').reset();
     document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
     selectedTime = null;
-    btn.textContent = 'Confirm Booking'; btn.disabled = false;
+    btn.textContent = es ? 'Confirmar Reserva' : 'Confirm Booking';
+    btn.disabled = false;
   }, 2000);
 });
 
@@ -759,46 +719,8 @@ function showMsg(text, type) {
   el.textContent = text; el.className = `form-message ${type}`;
   el.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
-
-/*
-══════════════════════════════════════════════
-  GOOGLE APPS SCRIPT SETUP
-  1. Go to script.google.com → New project
-  2. Paste the code below (replacing everything)
-  3. Create a sheet named "Bookings" in your Google Sheet
-  4. Deploy → New deployment → Web app
-     Execute as: Me | Who has access: Anyone
-  5. Copy the deployment URL → replace SHEET_URL above
-══════════════════════════════════════════════
-
-function doGet(e) {
-  const date = e.parameter.date;
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Bookings');
-  const rows = sheet.getDataRange().getValues();
-  const booked = [];
-  for (let i = 1; i < rows.length; i++) {
-    if (rows[i][5] === date) booked.push(rows[i][6]);
-  }
-  const output = ContentService.createTextOutput(JSON.stringify({ bookedSlots: booked }));
-  output.setMimeType(ContentService.MimeType.JSON);
-  return output;
-}
-
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Bookings');
-  var rows = sheet.getDataRange().getValues();
-  var date = e.parameter.date;
-  var time = e.parameter.time;
-  for (var i = 1; i < rows.length; i++) {
-    if (rows[i][5] === date && rows[i][6] === time) {
-      return ContentService.createTextOutput(JSON.stringify({ success: false })).setMimeType(ContentService.MimeType.JSON);
-    }
-  }
-  sheet.appendRow([new Date(), e.parameter.name, e.parameter.phone, e.parameter.email, e.parameter.service, date, time, e.parameter.address, e.parameter.notes, 'Pending']);
-  return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(ContentService.MimeType.JSON);
-}
-*/
 </script>
+
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
 <form id="hiddenSubmitForm" method="POST" action="https://script.google.com/macros/s/AKfycbxwswJyASMYR-irGyDIBU4rjuswYXZ1mjFDeGPG5uefE7PqDsSS_FDmYEWyGs989-8jLQ/exec" target="hidden_iframe" style="display:none">
   <input type="hidden" id="hf_name" name="name">
@@ -811,5 +733,4 @@ function doPost(e) {
   <input type="hidden" id="hf_notes" name="notes">
 </form>
 </body>
-
 </html>
